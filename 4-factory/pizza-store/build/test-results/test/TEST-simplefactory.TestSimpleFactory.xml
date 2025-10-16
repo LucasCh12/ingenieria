@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="simplefactory.TestSimpleFactory" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-09-22T18:59:11" hostname="lucas-ThinkPad" time="0.019">
+  <properties/>
+  <testcase name="testOrderVeggiePizza()" classname="simplefactory.TestSimpleFactory" time="0.009"/>
+  <testcase name="testOrderCheesePizza()" classname="simplefactory.TestSimpleFactory" time="0.006"/>
+  <system-out><![CDATA[Preparing Veggie Pizza
+Baking Veggie Pizza
+Cutting Veggie Pizza
+Boxing Veggie Pizza
+We ordered a Veggie Pizza
+
+---- Veggie Pizza ----
+Crust
+Marinara sauce
+Shredded mozzarella
+Grated parmesan
+Diced onion
+Sliced mushrooms
+Sliced red pepper
+Sliced black olives
+
+Preparing Cheese Pizza
+Baking Cheese Pizza
+Cutting Cheese Pizza
+Boxing Cheese Pizza
+We ordered a Cheese Pizza
+
+---- Cheese Pizza ----
+Regular Crust
+Marinara Pizza Sauce
+Fresh Mozzarella
+Parmesan
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

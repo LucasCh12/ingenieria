@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestDuck" tests="13" skipped="0" failures="0" errors="0" timestamp="2025-09-03T16:37:58" hostname="lucas-ThinkPad" time="0.074">
+  <properties/>
+  <testcase name="testModelDuck()" classname="TestDuck" time="0.026"/>
+  <testcase name="testDuckFlockAddDucksSameType()" classname="TestDuck" time="0.006"/>
+  <testcase name="testDuckFlockConstructor()" classname="TestDuck" time="0.002"/>
+  <testcase name="testDuckFlockDucksSameTypeQuack()" classname="TestDuck" time="0.002"/>
+  <testcase name="testMallardDuck()" classname="TestDuck" time="0.002"/>
+  <testcase name="testModelDuckChangeFlyBehavior()" classname="TestDuck" time="0.002"/>
+  <testcase name="testDuckFlockDucksDiffTypeQuack()" classname="TestDuck" time="0.002"/>
+  <testcase name="testDuckFlockDucksSameTypeFly()" classname="TestDuck" time="0.002"/>
+  <testcase name="testPatoCriolloFlyNormalAndLaterWithRocket()" classname="TestDuck" time="0.002"/>
+  <testcase name="testDuckFlockAddDucksDiffType()" classname="TestDuck" time="0.001"/>
+  <testcase name="testDuckFlockNewDuck()" classname="TestDuck" time="0.003"/>
+  <testcase name="testPatoCriollo()" classname="TestDuck" time="0.002"/>
+  <testcase name="testDuckFlockDucksDiffTypeFly()" classname="TestDuck" time="0.002"/>
+  <system-out><![CDATA[Quack
+I can't fly
+Quack
+Quack
+Quack
+Quack
+Quack
+I'm flying!!
+I can't fly
+I'm flying with a rocket
+Quack
+Quack
+Quack
+Quack
+Quack
+Quack
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+Quack
+Quack
+Quack
+Quack
+Quack
+Quack
+Quack
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+I'm flying!!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

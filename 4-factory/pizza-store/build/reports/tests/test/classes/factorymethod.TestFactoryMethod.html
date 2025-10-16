@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TestFactoryMethod</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TestFactoryMethod</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/factorymethod.html">factorymethod</a> &gt; TestFactoryMethod</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.161s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">66%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testOrderArgentinaPizza()"></a>
+<h3 class="failures">testOrderArgentinaPizza()</h3>
+<span class="code">
+<pre>java.lang.NullPointerException: Cannot invoke &quot;factorymethod.Pizza.getName()&quot; because &quot;pizza&quot; is null
+	at factorymethod.PizzaStore.orderPizza(PizzaStore.java:9)
+	at factorymethod.TestFactoryMethod.testOrderArgentinaPizza(TestFactoryMethod.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">testOrderArgentinaPizza()</td>
+<td class="failures">0.033s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">testOrderChicagoPizza()</td>
+<td class="success">0.106s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testOrderNYPizza()</td>
+<td class="success">0.022s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>--- Making a Chicago Style Deep Dish Cheese Pizza ---
+Prepare Chicago Style Deep Dish Cheese Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Shredded Mozzarella Cheese
+Bake for 25 minutes at 350
+Cutting the pizza into square slices
+Place pizza in official PizzaStore box
+Joel ordered a Chicago Style Deep Dish Cheese Pizza
+
+--- Making a Chicago Style Clam Pizza ---
+Prepare Chicago Style Clam Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Shredded Mozzarella Cheese
+   Frozen Clams from Chesapeake Bay
+Bake for 25 minutes at 350
+Cutting the pizza into square slices
+Place pizza in official PizzaStore box
+Joel ordered a Chicago Style Clam Pizza
+
+--- Making a Chicago Style Pepperoni Pizza ---
+Prepare Chicago Style Pepperoni Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Shredded Mozzarella Cheese
+   Black Olives
+   Spinach
+   Eggplant
+   Sliced Pepperoni
+Bake for 25 minutes at 350
+Cutting the pizza into square slices
+Place pizza in official PizzaStore box
+Joel ordered a Chicago Style Pepperoni Pizza
+
+--- Making a Chicago Deep Dish Veggie Pizza ---
+Prepare Chicago Deep Dish Veggie Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Shredded Mozzarella Cheese
+   Black Olives
+   Spinach
+   Eggplant
+Bake for 25 minutes at 350
+Cutting the pizza into square slices
+Place pizza in official PizzaStore box
+Joel ordered a Chicago Deep Dish Veggie Pizza
+
+--- Making a NY Style Sauce and Cheese Pizza ---
+Prepare NY Style Sauce and Cheese Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Grated Reggiano Cheese
+Bake for 25 minutes at 350
+Cut the pizza into diagonal slices
+Place pizza in official PizzaStore box
+Ethan ordered a NY Style Sauce and Cheese Pizza
+
+--- Making a NY Style Clam Pizza ---
+Prepare NY Style Clam Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Grated Reggiano Cheese
+   Fresh Clams from Long Island Sound
+Bake for 25 minutes at 350
+Cut the pizza into diagonal slices
+Place pizza in official PizzaStore box
+Ethan ordered a NY Style Clam Pizza
+
+--- Making a NY Style Pepperoni Pizza ---
+Prepare NY Style Pepperoni Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Grated Reggiano Cheese
+   Sliced Pepperoni
+   Garlic
+   Onion
+   Mushrooms
+   Red Pepper
+Bake for 25 minutes at 350
+Cut the pizza into diagonal slices
+Place pizza in official PizzaStore box
+Ethan ordered a NY Style Pepperoni Pizza
+
+--- Making a NY Style Veggie Pizza ---
+Prepare NY Style Veggie Pizza
+Tossing dough...
+Adding sauce...
+Adding toppings: 
+   Grated Reggiano Cheese
+   Garlic
+   Onion
+   Mushrooms
+   Red Pepper
+Bake for 25 minutes at 350
+Cut the pizza into diagonal slices
+Place pizza in official PizzaStore box
+Ethan ordered a NY Style Veggie Pizza
+
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.5</a> at 22 sept 2025 15:59:11</p>
+</div>
+</div>
+</body>
+</html>
