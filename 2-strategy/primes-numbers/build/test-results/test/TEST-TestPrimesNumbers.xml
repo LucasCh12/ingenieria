@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestPrimesNumbers" tests="20" skipped="0" failures="0" errors="0" timestamp="2025-09-07T23:31:40" hostname="lucas-ThinkPad" time="1.038">
+  <properties/>
+  <testcase name="[1] 5, [2,3,5,7,11]" classname="TestPrimesNumbers" time="0.078"/>
+  <testcase name="[2] 10, [2,3,5,7,11,13,17,19,23,29]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[3] 1, [2]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[4] 0, []" classname="TestPrimesNumbers" time="0.002"/>
+  <testcase name="[1] 5, [2,3,5,7,11]" classname="TestPrimesNumbers" time="0.002"/>
+  <testcase name="[2] 10, [2,3,5,7,11,13,17,19,23,29]" classname="TestPrimesNumbers" time="0.002"/>
+  <testcase name="[3] 1, [2]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[4] 0, []" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="testSaveFileOutput()" classname="TestPrimesNumbers" time="0.015"/>
+  <testcase name="[1] 5, [2,3,5,7,11]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[2] 10, [2,3,5,7,11,13,17,19,23,29]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[3] 1, [2]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[4] 0, []" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[1] BasicPrimeComputeAlgorithm@1c852c0f, [2,3,5,7,11,13,17,19,23,29]" classname="TestPrimesNumbers" time="0.002"/>
+  <testcase name="[2] SievePrimeComputeAlgorithm@13b3d178, [2,3,5,7,11,13,17,19,23,29]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="[3] SqrtPrimeComputeAlgorithm@24c4ddae, [2,3,5,7,11,13,17,19,23,29]" classname="TestPrimesNumbers" time="0.001"/>
+  <testcase name="testFileInput()" classname="TestPrimesNumbers" time="0.003"/>
+  <testcase name="testPerformAlgorithmWithMockInput()" classname="TestPrimesNumbers" time="0.824"/>
+  <testcase name="testScreenDisplayOutput()" classname="TestPrimesNumbers" time="0.002"/>
+  <testcase name="testPerformOutputWithMock()" classname="TestPrimesNumbers" time="0.056"/>
+  <system-out><![CDATA[Archivo creado en: output/primes_1757287900491.txt
+El resultado fue: [2,3,5,7,11,13,17,19,23,29]
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/lucas/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.4/3bf5ac1104554908cc623e40e58a00be37c35f36/byte-buddy-agent-1.14.4.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

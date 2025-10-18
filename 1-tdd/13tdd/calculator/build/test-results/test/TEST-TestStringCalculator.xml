@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestStringCalculator" tests="12" skipped="0" failures="1" errors="0" timestamp="2025-09-01T15:01:07" hostname="lucas-ThinkPad" time="0.042">
+  <properties/>
+  <testcase name="testStringNegative()" classname="TestStringCalculator" time="0.018"/>
+  <testcase name="testStringNewDelimiter()" classname="TestStringCalculator" time="0.002"/>
+  <testcase name="testStringUniqueNumber()" classname="TestStringCalculator" time="0.0"/>
+  <testcase name="testAddCount()" classname="TestStringCalculator" time="0.001"/>
+  <testcase name="testBigNumbers()" classname="TestStringCalculator" time="0.0"/>
+  <testcase name="testBigDelimiter()" classname="TestStringCalculator" time="0.001"/>
+  <testcase name="testStringWithLines()" classname="TestStringCalculator" time="0.001"/>
+  <testcase name="testMoreDelimiters()" classname="TestStringCalculator" time="0.007">
+    <failure message="java.lang.NumberFormatException: For input string: &quot;2%3&quot;" type="java.lang.NumberFormatException">java.lang.NumberFormatException: For input string: &quot;2%3&quot;
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:778)
+	at StringCalculator.stringToInt(StringCalculator.java:124)
+	at StringCalculator.add1(StringCalculator.java:107)
+	at StringCalculator.add(StringCalculator.java:77)
+	at TestStringCalculator.testMoreDelimiters(TestStringCalculator.java:93)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="testStringLotNumbers()" classname="TestStringCalculator" time="0.0"/>
+  <testcase name="testStringTwoNumbers1()" classname="TestStringCalculator" time="0.001"/>
+  <testcase name="testStringTwoNumbers2()" classname="TestStringCalculator" time="0.0"/>
+  <testcase name="testStringVoid()" classname="TestStringCalculator" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
