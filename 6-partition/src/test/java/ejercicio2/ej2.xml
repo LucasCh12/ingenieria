@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="ej2_correcto">
+  <Parameters>
+    <Parameter id="1" name="tamanoLista" type="1">
+      <values>
+        <value>lista vacia</value>
+        <value>lista con 1 elemento</value>
+        <value>lista con mas de un elemento</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="2" name="posicionElemento" type="1">
+      <values>
+        <value>NONE</value>
+        <value>primera posicion</value>
+        <value>posicion intermedia</value>
+        <value>ultima posicion</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints />
+  <Testset doi="2">
+    <!-- Lista vacía: solo NONE -->
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>lista vacia</Value>
+      <Value>NONE</Value>
+    </Testcase>
+
+    <!-- Lista con 1 elemento: primera y ultima posición son la misma -->
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>lista con 1 elemento</Value>
+      <Value>primera posicion</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>lista con 1 elemento</Value>
+      <Value>ultima posicion</Value>
+    </Testcase>
+
+    <!-- Lista con más de un elemento: primera, intermedia y última -->
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>lista con mas de un elemento</Value>
+      <Value>primera posicion</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>lista con mas de un elemento</Value>
+      <Value>posicion intermedia</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>lista con mas de un elemento</Value>
+      <Value>ultima posicion</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>tamanoLista</Value>
+    <Value>posicionElemento</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.003</ExecutionTime>
+    <MaxDomainSize>4</MaxDomainSize>
+    <MinDomainSize>2</MinDomainSize>
+    <TotalNoOfCombination>6</TotalNoOfCombination>
+    <TotalNoOfTests>6</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
