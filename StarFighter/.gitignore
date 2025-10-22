@@ -1,0 +1,63 @@
+# === Compilación y artefactos ===
+*.class
+*.log
+*.ctxt
+*.tmp
+*.swp
+*~
+hs_err_pid*
+replay_pid*
+
+# === Archivos empaquetados ===
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# === Gradle ===
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# === IDEs ===
+## IntelliJ
+.idea/
+*.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/libraries/
+
+## Eclipse
+.project
+.classpath
+.settings/
+
+## VS Code
+.vscode/
+
+## BlueJ (por si usás)
+*.ctxt
+package.bluej
+
+# === Output y temporales ===
+bin/
+out/
+.mtj.tmp/
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Cobertura y análisis ===
+/coverage/
+*.exec
+.sonar/
+
+# === Maven (por si hay restos) ===
+target/
+.mvn/
