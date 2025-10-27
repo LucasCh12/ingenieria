@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="Calculadora">
+  <Parameters>
+    <Parameter id="0" name="Valor1" type="1">
+      <values>
+        <value>negativo</value>
+        <value>cero</value>
+        <value>positivo</value>
+        <value>nulo</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="1" name="Valor2" type="1">
+      <values>
+        <value>negativo</value>
+        <value>cero</value>
+        <value>positivo</value>
+        <value>nulo</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="2" name="Operacion" type="1">
+      <values>
+        <value>suma</value>
+        <value>resta</value>
+        <value>multiplicacion</value>
+        <value>division</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints />
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>negativo</Value>
+      <Value>negativo</Value>
+      <Value>resta</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>negativo</Value>
+      <Value>cero</Value>
+      <Value>multiplicacion</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>negativo</Value>
+      <Value>positivo</Value>
+      <Value>division</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>negativo</Value>
+      <Value>nulo</Value>
+      <Value>suma</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>cero</Value>
+      <Value>negativo</Value>
+      <Value>multiplicacion</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>cero</Value>
+      <Value>cero</Value>
+      <Value>division</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>cero</Value>
+      <Value>positivo</Value>
+      <Value>suma</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>cero</Value>
+      <Value>nulo</Value>
+      <Value>resta</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>positivo</Value>
+      <Value>negativo</Value>
+      <Value>division</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>positivo</Value>
+      <Value>cero</Value>
+      <Value>suma</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>positivo</Value>
+      <Value>positivo</Value>
+      <Value>resta</Value>
+    </Testcase>
+    <Testcase TCNo="11">
+      <Value>12</Value>
+      <Value>positivo</Value>
+      <Value>nulo</Value>
+      <Value>multiplicacion</Value>
+    </Testcase>
+    <Testcase TCNo="12">
+      <Value>13</Value>
+      <Value>nulo</Value>
+      <Value>negativo</Value>
+      <Value>suma</Value>
+    </Testcase>
+    <Testcase TCNo="13">
+      <Value>14</Value>
+      <Value>nulo</Value>
+      <Value>cero</Value>
+      <Value>resta</Value>
+    </Testcase>
+    <Testcase TCNo="14">
+      <Value>15</Value>
+      <Value>nulo</Value>
+      <Value>positivo</Value>
+      <Value>multiplicacion</Value>
+    </Testcase>
+    <Testcase TCNo="15">
+      <Value>16</Value>
+      <Value>nulo</Value>
+      <Value>nulo</Value>
+      <Value>division</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>Valor1</Value>
+    <Value>Valor2</Value>
+    <Value>Operacion</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.059</ExecutionTime>
+    <MaxDomainSize>4</MaxDomainSize>
+    <MinDomainSize>4</MinDomainSize>
+    <TotalNoOfCombination>48</TotalNoOfCombination>
+    <TotalNoOfTests>16</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+

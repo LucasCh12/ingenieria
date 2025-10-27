@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Files>
+  <File>
+    <name>ej1.xml</name>
+    <path>/home/lucas/Documentos/ingenieria/6-partition/src/main/java/testing/partition/practico/ejercicio1/ej1.xml</path>
+    <location>0</location>
+  </File>
+  <File>
+    <name>triangle.xml</name>
+    <path>/home/lucas/Documentos/ingenieria/6-partition/triangle.xml</path>
+    <location>0</location>
+  </File>
+  <File>
+    <name>ej4.xml</name>
+    <path>/home/lucas/Documentos/ingenieria/6-partition/src/test/java/ejercicio4/ej4.xml</path>
+    <location>0</location>
+  </File>
+</Files>
+

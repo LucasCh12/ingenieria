@@ -47,7 +47,7 @@ import org.junit.jupiter.api.Test;
 
     Bloque 1: element está en la primera posición de la lista.
     Bloque 2: element está en la última posición de la lista.
-    Bloque 3: element está en alguna posición de la lista que no es la primera ni la última.
+    Bloque 3: element está en alguna posición de la lista que no es la primera ni la última. C1 = Cantidad de elementos en la lista.
 
 
     Osea cuando haya problemas de solapamiento, en la mayoria de los casos deberia armar otra caracteristica 

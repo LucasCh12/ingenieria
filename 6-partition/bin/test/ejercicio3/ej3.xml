@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="ej3">
+  <Parameters>
+    <Parameter id="0" name="validezS1" type="1">
+      <values>
+        <value>null</value>
+        <value>{}</value>
+        <value>s1 tiene un elemento</value>
+        <value>s1 tiene mas de un elemento</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="1" name="validezS2" type="1">
+      <values>
+        <value>null</value>
+        <value>{}</value>
+        <value>s2 tiene un elemento</value>
+        <value>s2 tiene mas de un elemento</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="2" name="relacionS1yS2" type="1">
+      <values>
+        <value>s1 y s2 representan el mismo conjunto</value>
+        <value>s1 y s2 no tienen elementos en comun</value>
+        <value>s1 es un subconjunto de s2 (con s1 y s2 no identicos)</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints />
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>null</Value>
+      <Value>null</Value>
+      <Value>s1 y s2 no tienen elementos en comun</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>null</Value>
+      <Value>{}</Value>
+      <Value>s1 es un subconjunto de s2 (con s1 y s2 no identicos)</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>null</Value>
+      <Value>s2 tiene un elemento</Value>
+      <Value>s1 y s2 representan el mismo conjunto</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>null</Value>
+      <Value>s2 tiene mas de un elemento</Value>
+      <Value>s1 y s2 no tienen elementos en comun</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>{}</Value>
+      <Value>null</Value>
+      <Value>s1 es un subconjunto de s2 (con s1 y s2 no identicos)</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>{}</Value>
+      <Value>{}</Value>
+      <Value>s1 y s2 representan el mismo conjunto</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>{}</Value>
+      <Value>s2 tiene un elemento</Value>
+      <Value>s1 y s2 no tienen elementos en comun</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>{}</Value>
+      <Value>s2 tiene mas de un elemento</Value>
+      <Value>s1 es un subconjunto de s2 (con s1 y s2 no identicos)</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>s1 tiene un elemento</Value>
+      <Value>null</Value>
+      <Value>s1 y s2 representan el mismo conjunto</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>s1 tiene un elemento</Value>
+      <Value>{}</Value>
+      <Value>s1 y s2 no tienen elementos en comun</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>s1 tiene un elemento</Value>
+      <Value>s2 tiene un elemento</Value>
+      <Value>s1 es un subconjunto de s2 (con s1 y s2 no identicos)</Value>
+    </Testcase>
+    <Testcase TCNo="11">
+      <Value>12</Value>
+      <Value>s1 tiene un elemento</Value>
+      <Value>s2 tiene mas de un elemento</Value>
+      <Value>s1 y s2 representan el mismo conjunto</Value>
+    </Testcase>
+    <Testcase TCNo="12">
+      <Value>13</Value>
+      <Value>s1 tiene mas de un elemento</Value>
+      <Value>null</Value>
+      <Value>s1 y s2 no tienen elementos en comun</Value>
+    </Testcase>
+    <Testcase TCNo="13">
+      <Value>14</Value>
+      <Value>s1 tiene mas de un elemento</Value>
+      <Value>{}</Value>
+      <Value>s1 es un subconjunto de s2 (con s1 y s2 no identicos)</Value>
+    </Testcase>
+    <Testcase TCNo="14">
+      <Value>15</Value>
+      <Value>s1 tiene mas de un elemento</Value>
+      <Value>s2 tiene un elemento</Value>
+      <Value>s1 y s2 representan el mismo conjunto</Value>
+    </Testcase>
+    <Testcase TCNo="15">
+      <Value>16</Value>
+      <Value>s1 tiene mas de un elemento</Value>
+      <Value>s2 tiene mas de un elemento</Value>
+      <Value>s1 y s2 representan el mismo conjunto</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>validezS1</Value>
+    <Value>validezS2</Value>
+    <Value>relacionS1yS2</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.001</ExecutionTime>
+    <MaxDomainSize>4</MaxDomainSize>
+    <MinDomainSize>3</MinDomainSize>
+    <TotalNoOfCombination>40</TotalNoOfCombination>
+    <TotalNoOfTests>16</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
