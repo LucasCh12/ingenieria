@@ -123,4 +123,44 @@ public class TestEjercicio6 {
      * Entonces le agregue un chequeo de si subject era 0, que devuelva -1.
      */
 
+     @Test
+    public void testPatternAtStart() {
+        assertEquals(0, PatternIndex.patternIndex("ABCD", "AB"));
+    }
+
+    @Test  
+    public void testPatternNotFound() {
+        assertEquals(-1, PatternIndex.patternIndex("ABCD", "XYZ"));
+    }
+
+    @Test
+    public void testSingleCharPattern() {
+        assertEquals(1, PatternIndex.patternIndex("ABCD", "B"));
+    }
+
+    @Test
+    public void testPatternLongerThanSubject() {
+        assertEquals(-1, PatternIndex.patternIndex("AB", "ABCD"));
+    }
+
+    @Test
+    public void testBothEmpty() {
+        assertEquals(-1, PatternIndex.patternIndex("", ""));
+    }
+    @Test
+    public void testPatternAtVeryEndButNoMatch() {
+        // Caso donde: iSub + patternLen - 1 == subjectLen
+        // Pero el pattern NO está ahí
+        String subject = "ABCDE";
+        String pattern = "DE";  // patternLen = 2
+        
+        // Cálculo: 
+        // subjectLen = 5, patternLen = 2
+        // Última iSub posible: iSub = 4 (porque 4 + 2 - 1 = 5 == subjectLen)
+        // Pero en iSub=4, subject.charAt(4)='E' != pattern.charAt(0)='D'
+        
+        assertEquals(-1, PatternIndex.patternIndex(subject, "XY"));
+        // O más específico:
+        assertEquals(-1, PatternIndex.patternIndex("ABCDE", "EF")); // EF no cabe al final
+    }
 }

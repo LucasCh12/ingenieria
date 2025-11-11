@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ejercicio3.TestEjercicio3" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-11-06T19:12:25.756Z" hostname="MacBook-Pro.local" time="0.034">
+<testsuite name="ejercicio3.TestEjercicio3" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-11-11T22:41:27.643Z" hostname="MacBook-Pro.local" time="0.024">
   <properties/>
-  <testcase name="testIntersection_s2Null_shouldThrow()" classname="ejercicio3.TestEjercicio3" time="0.007"/>
-  <testcase name="testIntersection_bothNull_shouldThrow()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
-  <testcase name="testIntersection_multipleElements_noOverlap()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
+  <testcase name="testIntersection_s2Null_shouldThrow()" classname="ejercicio3.TestEjercicio3" time="0.003"/>
+  <testcase name="testIntersection_bothNull_shouldThrow()" classname="ejercicio3.TestEjercicio3" time="0.001"/>
+  <testcase name="testIntersection_multipleElements_noOverlap()" classname="ejercicio3.TestEjercicio3" time="0.004"/>
   <testcase name="testIntersection_s1OneElement_s2OneElement_different_shouldReturnEmpty()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
-  <testcase name="testIntersection_bothEmpty_shouldReturnEmpty()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
-  <testcase name="testIntersection_s1OneElement_s2OneElement_same_shouldReturnElement()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
-  <testcase name="testIntersection_multipleElements_overlap()" classname="ejercicio3.TestEjercicio3" time="0.001"/>
-  <testcase name="testIntersection_s1OneElement_s2Empty_shouldReturnEmpty()" classname="ejercicio3.TestEjercicio3" time="0.003"/>
-  <testcase name="testIntersection_s1Null_shouldThrow()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
+  <testcase name="testIntersection_bothEmpty_shouldReturnEmpty()" classname="ejercicio3.TestEjercicio3" time="0.001"/>
+  <testcase name="testIntersection_s1OneElement_s2OneElement_same_shouldReturnElement()" classname="ejercicio3.TestEjercicio3" time="0.001"/>
+  <testcase name="testIntersection_multipleElements_overlap()" classname="ejercicio3.TestEjercicio3" time="0.002"/>
+  <testcase name="testIntersection_s1OneElement_s2Empty_shouldReturnEmpty()" classname="ejercicio3.TestEjercicio3" time="0.001"/>
+  <testcase name="testIntersection_s1Null_shouldThrow()" classname="ejercicio3.TestEjercicio3" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

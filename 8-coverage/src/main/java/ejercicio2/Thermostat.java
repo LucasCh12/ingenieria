@@ -44,6 +44,32 @@ public class Thermostat
       }
    } // End turnHeaterOn
 
+   /*
+      En este caso para hacer que se cumpla el criterio de test de cobertura es ejecutar al menos una vez cada linea del codigo,
+      las lineas que son criticas y no siempre se van a ejecutar del programa dadas las entradas que sean son:
+
+         +int timeNeeded = Math.abs(dTemp - curTemp); entrando unicamente a: if (((curTemp < dTemp - thresholdDiff) ||
+           (override && curTemp < overTemp - thresholdDiff)) &&
+           (timeSinceLastRun > minLag))
+         
+         +timeNeeded = Math.abs(overTemp - curTemp); entrando a if (override).
+
+         +setHeaterOn(false); return(false); entrando al else del primer if.
+
+      En este caso, para cubrir el criterio cobertura de sentencias necesitariamos:
+
+         +Test1: Entrar al else.
+         +Test2: Entrar al if, y entrar al if override.
+
+      En este caso para hacer que se cumpla el criterio de test de cobertura de decision es hacer que todas las decisiones 
+      o predicados logicos del codigo sean ejecutados por true y false al menos una vez.
+
+      En este caso tendriamos:
+         +Mismos dos test anteriores:  +primer if(falso).
+                                       +primer if(true), segundo if(true).
+         y agregarle el ultimo,        +primer if(true), segundo if(false).
+
+   */
    public void setCurrentTemp(int temperature)  { curTemp = temperature; }
    public void setThresholdDiff(int delta)      { thresholdDiff = delta; }
    public void setTimeSinceLastRun(int minutes) { timeSinceLastRun = minutes; }

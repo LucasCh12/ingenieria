@@ -1,4 +1,4 @@
-package ejercicio3;
+package ejercicio3; 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

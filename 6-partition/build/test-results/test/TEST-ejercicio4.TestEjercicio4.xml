@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ejercicio4.TestEjercicio4" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-11-06T19:12:25.799Z" hostname="MacBook-Pro.local" time="0.02">
+<testsuite name="ejercicio4.TestEjercicio4" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-11-11T22:41:27.671Z" hostname="MacBook-Pro.local" time="0.01">
   <properties/>
   <testcase name="testT1EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.003"/>
-  <testcase name="testT3EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.002"/>
-  <testcase name="testT5EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.003"/>
+  <testcase name="testT3EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.001"/>
+  <testcase name="testT5EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.001"/>
   <testcase name="testT2EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.001"/>
-  <testcase name="testT4EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.002"/>
+  <testcase name="testT4EjercicioD()" classname="ejercicio4.TestEjercicio4" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

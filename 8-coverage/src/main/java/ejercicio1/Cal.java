@@ -49,5 +49,36 @@ public class Cal
    }
 
 
+/*
+      En este caso para hacer que se cumpla el criterio de test de cobertura es ejecutar al menos una vez cada linea del codigo,
+      las lineas que son criticas y no siempre se van a ejecutar del programa dadas las entradas que sean son:
+         +numDays  = day2 - day1; esta linea se ejecuta unicamente si entramos al if (month2 == month1).
+         
+         +daysIn[2] = 28; esta linea se ejecuta unicamente si entramos al if ((m4 != 0) || ((m100 == 0) && (m400 != 0))).
+         
+         +daysIn[2] = 29; esta linea se ejecuta unicamente si entramos por la rama del 
+         else del if ((m4 != 0) || ((m100 == 0) && (m400 != 0))).
+         
+         +numDays = daysIn[i] + numDays; esta linea se ejecuta unicamente si entramos al for (int i = month1 + 1; i <= month2-1; i++).
+
+         En este caso, para cubrir el criterio cobertura de sentencias necesitariamos tres test como minimo:
+            +Entrar al primer if. (dias de un mismo mes).
+            +No entrar al primer if, entrar al segundo if. (año no bisiesto).
+            +No entrar al primer if, entrar al else del segundo if (año bisiesto).
+
+            Con esos datos seria: 
+               Test 1: month1 = 12, day1= 10, month2 = 12, day2 = 20, year = 2025. (dias mismo mes).
+               Test 2: month1 = 3, day1= 10, month2 = 8, day2 = 20, year = 2025.
+               Test 3: month1 = 2, day1= 13, month2 = 10, day2 = 25, year = 2012.
+      
+      En este caso para hacer que se cumpla el criterio de test de cobertura de decision es hacer que todas las decisiones 
+      o predicados logicos del codigo sean ejecutados por true y false al menos una vez.
+
+      En este caso tendriamos:
+         Test1: Primer if (true). (meses iguales).
+         Test2: Primer if (false), Segundo if(true), For(true). (Año no bisiesto y meses con separacion de al menos 2).
+         Test3: Primer if (false) , Segundo if(false), For(false). (Año bisiesto y meses con separacion de 1).
+ */   
+
 }
 

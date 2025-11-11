@@ -8,6 +8,8 @@
 plugins {
 	id 'java'
     id 'application'
+	id 'jacoco'
+	id 'info.solidsoft.pitest' version '1.19.0-rc.2'
 }
 
 repositories {
@@ -20,13 +22,19 @@ java {
     }
 }
 
-//mainClassName = 'DuckSimulator'
+//mainClassName = ''
 
 dependencies {
 	testImplementation(platform('org.junit:junit-bom:5.10.2'))
 	testImplementation('org.junit.jupiter:junit-jupiter')
 	testRuntimeOnly('org.junit.platform:junit-platform-launcher')
 	testImplementation("org.assertj:assertj-core:3.27.3")
+
+	// Cucumber
+	testImplementation('org.junit.platform:junit-platform-suite:1.10.2')
+	testImplementation('io.cucumber:cucumber-java:7.14.0')
+	testImplementation('io.cucumber:cucumber-junit-platform-engine:7.14.0')
+	testImplementation('io.cucumber:cucumber-expressions:17.0.1')
 }
 
 test {
@@ -55,3 +63,43 @@ clean.dependsOn cleanDocs
 run {
 	standardInput = System.in
 }
+
+jacocoTestReport {
+	dependsOn test
+}
+
+pitest {
+    // targetClasses = ['mutation.ejercicio4.*']  // ← ESTO ESTÁ MAL
+    
+    // CONFIGURACIÓN CORRECTA:
+    targetClasses = ['testing.partition.practico.ejercicio6.*']  // ← TODOS tus ejercicios
+    targetTests = ['ejercicio6.*']  // ← TODOS tus tests
+    
+    junit5PluginVersion = '1.2.3'
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+    verbose = true
+}
+/*
+// Make build fail if tests don't cover enough code
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'INSTRUCTION'
+                minimum = 0.87
+            }
+            limit {
+                counter = 'BRANCH'
+                minimum = 0.80
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+build.dependsOn 'pitest'
+*/
+

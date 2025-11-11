@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ejercicio5.TestEjercicio5" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-11-06T19:12:25.835Z" hostname="MacBook-Pro.local" time="0.071">
+<testsuite name="ejercicio5.TestEjercicio5" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-11-11T22:41:27.684Z" hostname="MacBook-Pro.local" time="0.026">
   <properties/>
-  <testcase name="testMetodoEnqueueT0()" classname="ejercicio5.TestEjercicio5" time="0.004"/>
+  <testcase name="testMetodoEnqueueT0()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <testcase name="testMetodoEnqueueT1()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
-  <testcase name="testMetodoEnqueueT2()" classname="ejercicio5.TestEjercicio5" time="0.019"/>
+  <testcase name="testMetodoEnqueueT2()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <testcase name="testMetodoIsFullT1()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <testcase name="testMetodoIsFullT2()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <testcase name="testMetodoBoundedQueueT1()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
-  <testcase name="testMetodoBoundedQueueT2()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
+  <testcase name="testMetodoBoundedQueueT2()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <testcase name="testMetodoBoundedQueueT3()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <testcase name="testMetodoDeQueueT1()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
-  <testcase name="testMetodoDeQueueT2()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
-  <testcase name="testMetodoDeQueueT3()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
-  <testcase name="testMetodoIsEmptyT1()" classname="ejercicio5.TestEjercicio5" time="0.003"/>
-  <testcase name="testMetodoIsEmptyT2()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
-  <testcase name="testMetodoIsEmptyT3()" classname="ejercicio5.TestEjercicio5" time="0.002"/>
+  <testcase name="testMetodoDeQueueT2()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
+  <testcase name="testMetodoDeQueueT3()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
+  <testcase name="testMetodoIsEmptyT1()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
+  <testcase name="testMetodoIsEmptyT2()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
+  <testcase name="testMetodoIsEmptyT3()" classname="ejercicio5.TestEjercicio5" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
