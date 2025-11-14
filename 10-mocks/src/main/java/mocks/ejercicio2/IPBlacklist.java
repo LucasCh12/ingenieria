@@ -20,7 +20,7 @@ public class IPBlacklist {
 	public void setService(LoginService service) {
 		this.service = service;
 	}
-	
+
 	public boolean login(String ip, String userName, String password) {
 		if(blacklisted(ip)) {
 			lastip = ip;

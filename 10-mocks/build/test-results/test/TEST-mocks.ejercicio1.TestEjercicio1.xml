@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mocks.ejercicio1.TestEjercicio1" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-11-12T13:11:15.726Z" hostname="MacBook-Pro.local" time="0.011">
+  <properties/>
+  <testcase name="test1()" classname="mocks.ejercicio1.TestEjercicio1" time="0.005"/>
+  <testcase name="test2()" classname="mocks.ejercicio1.TestEjercicio1" time="0.002"/>
+  <testcase name="test3()" classname="mocks.ejercicio1.TestEjercicio1" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
