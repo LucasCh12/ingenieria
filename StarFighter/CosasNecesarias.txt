@@ -1,0 +1,107 @@
+Cosas a realizar:
+
+
+*Aplicar patron command para los comandos del jugador.
+	+Se usa interfaz GameCommand con metodo execute().
+	+Cada comando concreto implementa lo que haria delntro del engine.
+	+El controlador de entrada crea el comando como objeto y se lo pasa al engine para ejecutarlo.
+	(Permite tmb tener un historial de comandos usados previamente en la partida).
+  +Se puede usar el command tambien en los turnos
+
+*Aplicar patron decorator para el renderizado del estado de juego corriente.
+	+Se usa interfaz GameRenderer con metodo render(), dado un estado de juego como parametro formal.
+	+Clase BasicGameRenderer que renderiza lo minimo e indispensable : la grilla y las naves en texto plano. (clase component del diagrama)
+	+Clase abstract RendererDecorator (clase decorator del diagrama).
+	+Clase MessageRendererDecorator, se encarga de mostrar los movimientos previos o mensajes tipo "destruiste una nave",y 
+	tmb encapsularia lo de jugada previa (bug seba)
+	(clase ConcreteDecoratorA en diagrama).
+
+*Aplicar patron factory para creacion de enemigos, projectiles, y equipamientos (power ups).
+	-EnemyFactory (actua random explicado abajo)
+	-ProjectileFactory
+	-EquipmentFactory
+
+
+*Aplicar patron strategy para la estrategia de las diferentes tipos de armas y diferentes acciones de los enemies 
+
+*Aplicar el composite para los atributos finales de la nave, porque hay que ir guardando
+lo que el user quiere
+
+*Menu interactivo, 5 cosas previas al juego armor, weapon, engine, power y el resumen usa el setupBack y el setupNext puede volver
+ para atras adelante etc no se pierde la info,
+si va mas para adelante en los pasos directamente arranca el juego  -- Se puede hacer con el state
+
+*Patron Template:
+ DATA DEL PROMPT
+ +Sería útil para estandarizar la lógica del ciclo de vida de un enemigo en la Fase 5 ("Enemies Act"). 
+ El template definiría los pasos fijos (Regeneración, Movimiento, Disparo/Spawn), mientras que los métodos hook 
+ serían implementados por cada tipo de enemigo para definir su movimiento y acción específicos
+
+*Ej uso: UserInput -> CommandParser -> GameCommand -> StarFighterGameEngine -> GameState -> GameRender (decorator) -> Consola.
+
+*Interfaz GameState (clases que implementan):
+	-NotStartedState
+	-SetupState
+	-InGameState
+	-SetupSubstate
+
+*Tipos de armas:
+	-Standard
+	-Spread
+	-Snipe
+	-Rocket
+	-Splitter.
+
+*Tipos de power ups:
+	-Recall
+	-Repair
+	-Overcharge
+	-Deploy Drones
+	-Orbital Strike
+
+*Tipos de enemigos:
+	-Grunt
+	-Fighter
+	-Carrier
+	-Interceptor
+	-Pylon
+
+*Fases de un turno del juego:
+	1)_ proyectiles amigos, posibles interacciones:
+		*Colisiona con proyectil enemigo.
+		*Colisiona con proyectil amigo.
+		*Colisiona con enemigo.
+		*Colisiona con el StarFighter
+	2)_ proyectiles enemigos, posibles interacciones:	
+		*Colisiona con proyectil enemigo.
+		*Colisiona con proyectil amigo.
+		*Colisiona con enemigo.
+		*Colisiona con el StarFighter	
+	3)_ Starfigher, posibles decisiones jugador:
+		*pass.
+		*move.
+		*fire, posibles situaciones:
+			-spawnea donde hay proyectil enemigo.
+			-spawnea donde hay proyectil amigo.
+			-spawnea donde hay un enemigo.
+			-spawnea fuera del tablero.
+		*special (usa power up creo)
+	4)_ se actualiza la vision del starfighter.
+		*lo visto por el starfighter.
+		*los que ven al starfighter.
+	5)_ Enemigos, posibles acciones:
+		*Se regenera.
+		*Se mueve, posibles situaciones:
+			-si el camino tiene un enemigo en el.
+			-viaja e interactua con otras entidades.
+		*Sigue en el tablero, posibles situaciones:
+			-dispara.
+			-spawnea enemigos.
+	6)_ se actualiza la vision de los enemigos, igual a 4)
+	7)_ spawnean enemigos random, random decide:
+		-si spawnea o no.
+		-si va a spawnear un enemigo, random decide cual en especifico, posibles situaciones:
+			*spawnea donde hay un proyectil amigo.
+			*spawnea donde hay enemigo.
+			*spawnea donde esta starfighter.
+		

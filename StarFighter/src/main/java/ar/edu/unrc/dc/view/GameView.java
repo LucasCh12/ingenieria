@@ -3,43 +3,20 @@ package ar.edu.unrc.dc.view;
 
 import java.util.List;
 
-import ar.edu.unrc.dc.model.*;
+import ar.edu.unrc.dc.model.actions.AbortCommand;
+import ar.edu.unrc.dc.model.actions.FireCommand;
+import ar.edu.unrc.dc.model.actions.GameCommand;
+import ar.edu.unrc.dc.model.actions.MoveCommand;
+import ar.edu.unrc.dc.model.actions.PassCommand;
+import ar.edu.unrc.dc.model.actions.PlayCommand;
+import ar.edu.unrc.dc.model.board.Board;
+import ar.edu.unrc.dc.model.board.movement.ProjectileMovement;
+import ar.edu.unrc.dc.model.game.StarfighterGameEngine;
+import ar.edu.unrc.dc.utils.Observer;
 
-public class GameView {
+public class GameView implements Observer{
 
     public GameView(){ }
-
-    public void displayBoard(Board board, boolean isGameActive) {
-        int rows = board.getRow();
-        int cols = board.getColumn();
-
-        System.out.print("  ");
-        for (int col = 0; col < cols; col++) {
-            System.out.print(col + " ");
-        }
-        System.out.println();
-
-        for (int row = 0; row < rows; row++) {
-            System.out.print(row + " ");
-            for (int col = 0; col < cols; col++) {
-                Position pos = new Position(row, col);
-                BoardObject obj = board.getObjectAt(pos);
-
-                if (obj == null) {
-                    System.out.print("_ ");
-                } else if (obj instanceof StarFighter) {
-                    System.out.print(isGameActive ? "S " : "X ");
-                } else if (obj instanceof Projectile) {
-                    System.out.print("* ");
-                }
-            }
-            System.out.println();
-        }
-        
-        if (!isGameActive) {
-            System.out.print("Game over.");
-        }
-    }
 
     public void displayProjectileMovements(List<ProjectileMovement> movements) {
         for (ProjectileMovement movement : movements) {
@@ -54,36 +31,154 @@ public class GameView {
      public void displayOptions() {
         System.out.println("\n=== OPTIONS ===");
         System.out.println("1: Move");
-        System.out.println("2: Fire"); 
+        System.out.println("2: Fire");
         System.out.println("3: Pass");
         System.out.println("4: Abort");
         System.out.print("Choose an option: ");
     }
 
-    public void displayTurn(Turn turn) {
+    public void displayCommand(GameCommand command) {
         System.out.println("\n=== TURN EXECUTED ===");
         
-        if (turn instanceof Fire) {
+        if (command instanceof FireCommand) {
             System.out.println("Action: FIRE - Starfighter fired a projectile");
         } 
-        else if (turn instanceof Move) {
-            Move move = (Move) turn;
+        else if (command instanceof MoveCommand) {
+            MoveCommand move = (MoveCommand) command;
             System.out.println("Action: MOVE - Starfighter moved " + 
                 move.getVertical() + " vertically, " + move.getHorizontal() + " horizontally");
         }
-        else if (turn instanceof Pass) {
+        else if (command instanceof PassCommand) {
             System.out.println("Action: PASS - Starfighter passed the turn");
         }
-        else if (turn instanceof Abort) {
+        else if (command instanceof AbortCommand) {
             System.out.println("Action: ABORT - Game aborted");
         }
-        else {
-            System.out.println("Action: " + turn.getClass().getSimpleName());
-        }
+        else if (command instanceof PlayCommand) {
+            System.out.println("Action: PLAY - Game started");
+        }else {System.out.println(" - Game started"); }
     }
 
-    // Método adicional útil para mostrar mensajes generales
+    
+    @Override
+    public void update(StarfighterGameEngine engine) {
+        GameCommand executedCommand = engine.getCurrentcCommand();
+        if(executedCommand != null){
+            displayCommand(executedCommand);
+        }else{
+            displayMessage("Game initialized.");
+        }
+
+        displayBoard(engine.getBoard(), engine.isGameActive());
+
+        if(engine.isGameActive()){
+            displayOptions();
+        }
+    
+    }
+
+    public void displayBoard(Board board, boolean isGameActive){
+        if (!isGameActive) {
+            System.out.print("Game over.");
+        }
+        System.out.println(board.toString());
+    }
+
     public void displayMessage(String message) {
         System.out.println(message);
     }
+    
+    public void displayConfigHeader() {
+        System.out.println("\n--- INITIAL CONFIGURATION ---");
+    }
+
+    public void displayConfigSetUp() {
+        System.out.println("\n--- EQUIPMENT CONFIGURATION ---");
+    }
+
+    public void displayMenuSetUp() {
+        System.out.println("\n Input:"+"\n [1] Previous Step "+"\n [2] Select Option" +"\n [3] Next Step"+"\n [4] abort: ");
+    }
+
+    // flush obliga escribir el print sirve para que se ejecute uno a uno y no todos juntos
+    public void displayRowPrompt() {
+        System.out.print("Input number of rows of the grid: ");
+        System.out.flush();
+    }
+    public void displayColumnPrompt() {
+        System.out.print("Input number of columns of the grid: ");
+        System.out.flush();
+    }
+    public void displayStarfighterSpeedPrompt() {
+        System.out.print("Input maximum movement of Starfighter: ");
+        System.out.flush();
+    }
+    public void displayProjectileSpeedPrompt() {
+        System.out.print("Input speed of projectiles: ");
+        System.out.flush();
+    }
+
+    public void displayWeaponPrompt(){
+        System.out.print("Input weapon: ");
+        System.out.flush();
+    }
+
+    public void displayArmorPrompt(){
+        System.out.print("Input armor: ");
+        System.out.flush();
+    }
+    public void displayEnginePrompt(){
+        System.out.print("Input engine: ");
+        System.out.flush();
+    }
+    public void displayPowerPrompt(){
+        System.out.print("Input power: ");
+        System.out.flush();
+    }
+    
+    public void displayMoveHeader(int maxMovement) {
+        System.out.println("\n=== MOVE COMMAND ===");
+        System.out.println("Where do you want to move?");
+        System.out.println("Max movement allowed: " + maxMovement);
+    }
+    public void displayVerticalMovePrompt() {
+        System.out.print("Input vertical distance (negative=up, positive=down): ");
+        System.out.flush();
+    }
+    public void displayHorizontalMovePrompt() {
+        System.out.print("Input horizontal distance (negative=left, positive=right): ");
+        System.out.flush();
+    }
+
+    public void displayCommandHistory(List<GameCommand> history) {
+        System.out.println("=== Command History ===");
+        for (int i = 0; i < history.size(); i++) {
+            GameCommand cmd = history.get(i);
+            System.out.println((i + 1) + ". " + cmd.getClass().getSimpleName());
+        }
+    }
+    
+    public void displayLastCommand(GameCommand command) {
+        System.out.println("Last command: " + command.getClass().getSimpleName());
+    }
+
+    public void displayGetNumber() {
+        System.out.println("Ingrese cuanto");
+    }
+
+    public void armorOption(String string) {
+        System.out.println("[1] Cota de Malla"+"n[2] Coraza Plasmatica"+"\n[3] Escudo de Energia"+"\n[4] Campo de Fuerza");
+    }
+
+    public void weaponOptions(String string) {
+        System.out.println("[1] Standard"+"\n[2] Spread"+"\n[3] Laser"+"\n[4] Rocket Launcher"+"\n[5] Plasma Cannon");
+    }
+
+    public void powerOptions(String string) {
+        System.out.println("[1] Recall"+"\n[2] Overdrive"+"\n[3] Shield Boost"+"\n[4] Energy Surge");
+    }
+    public void engineOptions(String string) {
+        System.out.println("[1] Standard Engine"+"\n[2] Turbo Engine"+"\n[3] Hyperdrive Engine");
+    }
 }
+

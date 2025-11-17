@@ -1,0 +1,20 @@
+package ar.edu.unrc.dc.model.equipment.gear.armor;
+
+import ar.edu.unrc.dc.model.board.objects.entities.StatsEntities;
+
+public class CorazonDeAcero extends ArmorAbstract {
+
+
+    public CorazonDeAcero(StatsEntities stats) {
+        super(stats);
+    }
+    
+    @Override
+    public void applyModifiersStats() {
+        statsStartFighter.setArmour(statsStartFighter.getArmour() + 40);
+        statsStartFighter.setTotalHealth(statsStartFighter.getTotalHealth() + 40);
+        statsStartFighter.setCurrentHealth(statsStartFighter.getCurrentHealth() + 40);
+        statsStartFighter.setMoveSpeed(statsStartFighter.getMoveSpeed() - 5)
+    }
+
+}
