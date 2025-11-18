@@ -11,7 +11,7 @@ public class CotaDeMalla extends ArmorAbstract {
     
     @Override
     public void applyModifiersStats() {
-        statsStartFighter.setArmour(statsStartFighter.getArmour() + 50); // agregamos 5 de armor
+        statsStartFighter.setArmour(statsStartFighter.getArmour() + 50); 
     }
 
 }

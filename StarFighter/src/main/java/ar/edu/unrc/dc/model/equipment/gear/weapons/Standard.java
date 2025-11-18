@@ -7,32 +7,30 @@ import ar.edu.unrc.dc.model.board.Position;
 import ar.edu.unrc.dc.model.board.objects.projectiles.Projectile;
 
 public class Standard extends WeaponAbstract {
-    
-    private int projectileSpeed;
+
+    private final int projectileSpeed;
 
     public Standard(int projectileSpeed) {
         super();
-        this.projectileSpeed = projectileSpeed;
+        this.projectileSpeed = projectileSpeed; 
     }
 
     @Override
     public List<Projectile> fire(Position shooterPos) {
         List<Projectile> projectiles = new ArrayList<>();
 
-        int column = shooterPos.getColumn();
         int row = shooterPos.getRow();
+        int col = shooterPos.getColumn();
 
-        Position newPosition = new Position(
-            row,
-            column + 1
-        );
+        Position spawn = new Position(row, col + 1);
 
-        Projectile projectile = new Projectile(newPosition, getWeaponType());
-        projectile.setDamage(2);
-        projectile.setMoveSpeed(projectileSpeed);
+        Projectile p = new Projectile(spawn, getWeaponType());
+        p.setDamage(2);
 
-        projectiles.add(projectile);
+        int speed = (this.projectileSpeed <= 0) ? 5 : this.projectileSpeed;
+        p.setDirection(speed, 0);
 
+        projectiles.add(p);
         return projectiles;
     }
 
@@ -42,7 +40,7 @@ public class Standard extends WeaponAbstract {
     }
 
     @Override
-    public int getProjectileSpeed(){
+    public int getProjectileSpeed() {
         return projectileSpeed;
     }
 }

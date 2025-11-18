@@ -1,9 +1,17 @@
-package ar.edu.unrc.dc.stepsPendientes;
+package ar.edu.unrc.dc.runners;
+
+import static org.junit.jupiter.api.Assertions.*;
+import io.cucumber.java.en.*;
 
 import ar.edu.unrc.dc.model.board.Board;
 import ar.edu.unrc.dc.model.board.Position;
+import ar.edu.unrc.dc.model.board.objects.AbstractBoardObject;
+import ar.edu.unrc.dc.model.board.objects.entities.StatsEntities;
 import ar.edu.unrc.dc.model.board.objects.entities.fighters.StarFighter;
 import ar.edu.unrc.dc.model.board.objects.projectiles.Projectile;
+import ar.edu.unrc.dc.model.equipment.gear.Gear;
+import ar.edu.unrc.dc.model.equipment.gear.weapons.Standard;
+import ar.edu.unrc.dc.model.equipment.gear.weapons.WeaponAbstract;
 
 public class BoardSteps {
     private Board board;
@@ -15,12 +23,13 @@ public class BoardSteps {
     private StarFighter starFighter;
     private Position starFighterPosition;
     private Exception exception;
+    private StatsEntities stats;
     boolean result;
     Projectile projectile;
-    /*
+    
     private String normalizeBoardString(String boardString) {
         return boardString.trim() 
-                     .replaceAll(" \\n", "\n") 
+                     .replaceAll(" \n", "\n") 
                      .replaceAll(" +", " "); 
     }
 
@@ -36,7 +45,11 @@ public class BoardSteps {
         starFighterMoveSpeed = int1;
         starFighterVision = int2;
         projectileSpeed = int3;
-        starFighter = new StarFighter(starFighterPosition, starFighterMoveSpeed, projectileSpeed, starFighterVision);
+        
+        // Create a StatsEntities object with the provided values
+        stats = new StatsEntities(100, 100, starFighterMoveSpeed, starFighterVision, "TestFighter", projectileSpeed);
+        Gear gear = null;
+        starFighter = new StarFighter(starFighterPosition, gear, stats, column, projectileSpeed);
     }
 
     @When("I create the board")
@@ -101,20 +114,23 @@ public class BoardSteps {
     @When("I want to add a Projectile in position row: {int} column {int}")
     public void i_want_to_add_a_projectile_in_position_row_column(Integer int1, Integer int2) {
         Position auxPosition = new Position(int1, int2);
-        projectile = new Projectile(auxPosition, projectileSpeed);
+        projectile = new Projectile(auxPosition, "Standard");
         board.addObjectToBoard(projectile);        
     }
 
     @When("I try to add a non-Projectile object at position row: {int} column: {int}")
     public void i_try_to_add_a_non_projectile_object_at_position_row_column(Integer row, Integer col) {
         Position invalidPosition = new Position(row, col);
-        StarFighter invalidStarFighter = new StarFighter(invalidPosition, 2, 2, 13);
+        // Use the existing stats or create new ones if needed
+        if (stats == null) {
+            stats = new StatsEntities(20, 20, 2, 13, "a", 2);
+        }
+        Gear gear = null;
+        AbstractBoardObject invalidStarFighter = new StarFighter(starFighterPosition, gear, stats, column, projectileSpeed);
         try {
             board.addObjectToBoard(invalidStarFighter);
         } catch (Exception e) {
             this.exception = e;
         }
     }
-    
-    */
 }

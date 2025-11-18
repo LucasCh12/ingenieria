@@ -12,6 +12,7 @@ import ar.edu.unrc.dc.model.board.objects.entities.enemies.Fighter;
 import ar.edu.unrc.dc.model.board.objects.entities.enemies.Grunt;
 import ar.edu.unrc.dc.model.board.objects.entities.enemies.Interceptor;
 import ar.edu.unrc.dc.model.board.objects.entities.enemies.Pylon;
+import ar.edu.unrc.dc.model.equipment.gear.Gear;
 import ar.edu.unrc.dc.model.equipment.gear.weapons.WeaponAbstract;
 
 public class EnemyFactory {
@@ -19,6 +20,7 @@ public class EnemyFactory {
     private Random random = new Random();
     private WeaponFactory weaponFactory = new WeaponFactory();
     private Board board;
+    private Gear gear;
 
     private List<String> tipos = List.of(
         "Grunt", "Fighter", "Carrier", "Interceptor", "Pylon"
@@ -29,7 +31,8 @@ public class EnemyFactory {
     private Enemy createRandomEnemy(Position pos) {
         String type = tipos.get(random.nextInt(tipos.size()));
         WeaponAbstract weapon = weaponFactory.createRandomWeapon();
-        return createEnemy(type, pos, weapon);
+        gear.setWeapon(weapon);
+        return createEnemy(type, pos, gear);
     }
 
     public Enemy createEnemy(){
@@ -40,18 +43,18 @@ public class EnemyFactory {
         return createRandomEnemy(position);
     }
 
-    private Enemy createEnemy(String type, Position pos, WeaponAbstract weapon) {
+    private Enemy createEnemy(String type, Position pos, Gear gear) {
         Enemy enemy; 
         if (type.equals("Grunt")) {
-            enemy = new Grunt(weapon,null, null, pos, new StatsEntities(100, 1, 1, 5, "Grunt",3));
+            enemy = new Grunt(gear, pos, new StatsEntities(100, 1, 1, 5, "Grunt",3));
         } else if (type.equals("Fighter")) {
-            enemy = new Fighter(weapon,null, null, pos, new StatsEntities(150, 5, 10, 10, "Fighter",4));
+            enemy = new Fighter(gear, pos, new StatsEntities(150, 5, 10, 10, "Fighter",4));
         } else if (type.equals("Carrier")) {
-            enemy = new Carrier(weapon,null, null, pos, new StatsEntities(200, 10, 15, 15, "Carrier",1));
+            enemy = new Carrier(gear, pos, new StatsEntities(200, 10, 15, 15, "Carrier",1));
         } else if (type.equals("Interceptor")) {
-            enemy = new Interceptor(weapon,null, null, pos, new StatsEntities(50, 0, 0, 5, "Interceptor",5));
+            enemy = new Interceptor(gear, pos, new StatsEntities(50, 0, 0, 5, "Interceptor",5));
         } else {
-            enemy = new Pylon(weapon,null, null, pos,new StatsEntities(300, 0, 0, 5, "Pylon",1));
+            enemy = new Pylon(gear, pos,new StatsEntities(300, 0, 0, 5, "Pylon",1));
         }
 
         return enemy;

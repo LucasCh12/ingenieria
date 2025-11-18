@@ -28,6 +28,7 @@ public class Main {
         gc.play();
         gc.move();
         gc.fire();
+        gc.move();
         gc.pass();
 
 

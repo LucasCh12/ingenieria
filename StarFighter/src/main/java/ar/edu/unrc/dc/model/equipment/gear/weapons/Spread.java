@@ -14,30 +14,30 @@ public class Spread extends WeaponAbstract {
         super();
     }
 
-    @Override
     public List<Projectile> fire(Position shooterPos) {
-        List<Projectile> projectiles = new ArrayList<>();
+    List<Projectile> projectiles = new ArrayList<>();
+    int column = shooterPos.getColumn();
+    int row = shooterPos.getRow();
 
-        int column = shooterPos.getColumn();
-        int row = shooterPos.getRow();
+    for (int rowOffset = -1; rowOffset <= 1; rowOffset++) {
 
-        // Dispara 3 proyectiles en abanico: fila-1, fila, fila+1
-        for (int rowOffset = -1; rowOffset <= 1; rowOffset++) {
+        Position newPosition = new Position(
+            row + rowOffset,
+            column + 1
+        );
 
-            Position newPosition = new Position(
-                row + rowOffset,
-                column + 1
-            );
+        Projectile projectile = new Projectile(newPosition, getWeaponType());
+        projectile.setDamage(4);
 
-            Projectile projectile = new Projectile(newPosition, getWeaponType());
-            projectile.setDamage(4);
-            projectile.setMoveSpeed(projectileSpeed);
+        // dx = 1 constante a la derecha, dy según el offset
+        projectile.setDirection(1, rowOffset);
+        // NO LLAMAR MÁS setMoveSpeed
 
-            projectiles.add(projectile);
-        }
-
-        return projectiles;
+        projectiles.add(projectile);
     }
+
+    return projectiles;
+}
 
     @Override
     public String getWeaponType() {

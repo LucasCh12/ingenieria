@@ -5,45 +5,23 @@ import java.util.List;
 import ar.edu.unrc.dc.model.board.Position;
 import ar.edu.unrc.dc.model.board.objects.AbstractBoardObject;
 import ar.edu.unrc.dc.model.board.objects.projectiles.Projectile;
-import ar.edu.unrc.dc.model.equipment.gear.weapons.WeaponAbstract;
-import ar.edu.unrc.dc.model.equipment.gear.armor.ArmorAbstract;
-import ar.edu.unrc.dc.model.equipment.gear.power.PowerAbstract;
+import ar.edu.unrc.dc.model.equipment.gear.Gear;
 
 public class Entity extends AbstractBoardObject {
-    private WeaponAbstract weaponType;
-    private ArmorAbstract armorType;
-    public PowerAbstract powerType;
+    private Gear gear;
     private StatsEntities statsEntities;
 
-    public Entity(WeaponAbstract weapon, ArmorAbstract armorType, PowerAbstract powerType, Position position,StatsEntities stats){
+    public Entity(Gear gear, Position position,StatsEntities stats){
         super(position);
-        this.weaponType = weapon;
-        this.armorType = armorType;
+        this.gear = gear;
         this.statsEntities = stats;
-        this.powerType = powerType;
     }
-
-    public WeaponAbstract getWeaponType(){ return  weaponType; }
-
-    public ArmorAbstract getArmorType(){ return  armorType; }
-
-    public PowerAbstract getPowerType(){ return  powerType; }
 
     public StatsEntities getStatsEntities(){ return this.statsEntities; }
 
+    public Gear getGear(){ return this.gear; }
+
     public List<Projectile> shootProjectile(){
-        return this.weaponType.fire(getPosition());
-    }
-
-    public void setWeaponType(WeaponAbstract weaponType) {
-        this.weaponType = weaponType;
-    }
-
-        public void setArmorType(ArmorAbstract armorType) {
-        this.armorType = armorType;
-    }
-
-        public void setPowerType(PowerAbstract powerType) {
-        this.powerType = powerType;
+        return gear.getWeapon().fire(getPosition());
     }
 }

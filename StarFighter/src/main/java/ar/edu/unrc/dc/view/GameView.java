@@ -166,18 +166,18 @@ public class GameView implements Observer{
         System.out.println("Ingrese cuanto");
     }
 
-    public void armorOption(String string) {
-        System.out.println("[1] Cota de Malla"+"n[2] Coraza Plasmatica"+"\n[3] Escudo de Energia"+"\n[4] Campo de Fuerza");
+    public void armorOption() {
+        System.out.println("[1] Cota de Malla"+"\n[2] Corazon de acero"+"\n[3] Zhonya"+"\n[4] Warmog");
     }
 
-    public void weaponOptions(String string) {
-        System.out.println("[1] Standard"+"\n[2] Spread"+"\n[3] Laser"+"\n[4] Rocket Launcher"+"\n[5] Plasma Cannon");
+    public void weaponOptions() {
+        System.out.println("[1] Standard"+"\n[2] Spread"+"\n[3] Splitter"+"\n[4] Sniper"+"\n[5] Rocket");
     }
 
-    public void powerOptions(String string) {
-        System.out.println("[1] Recall"+"\n[2] Overdrive"+"\n[3] Shield Boost"+"\n[4] Energy Surge");
+    public void powerOptions() {
+        System.out.println("[1] Recall"+"\n[2] Repair"+"\n[3] Overcharge"+"\n[4] Deploy Drones"+"\n[5] Orbital Strike");
     }
-    public void engineOptions(String string) {
+    public void engineOptions() {
         System.out.println("[1] Standard Engine"+"\n[2] Turbo Engine"+"\n[3] Hyperdrive Engine");
     }
 }

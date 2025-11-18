@@ -4,14 +4,12 @@ import ar.edu.unrc.dc.model.actions.GameCommand;
 import ar.edu.unrc.dc.model.board.Board;
 import ar.edu.unrc.dc.model.board.Position;
 import ar.edu.unrc.dc.model.board.objects.entities.StatsEntities;
-import ar.edu.unrc.dc.model.equipment.gear.armor.ArmorAbstract;
-import ar.edu.unrc.dc.model.equipment.gear.power.PowerAbstract;
-import ar.edu.unrc.dc.model.equipment.gear.weapons.WeaponAbstract;
+import ar.edu.unrc.dc.model.equipment.gear.Gear;
 import ar.edu.unrc.dc.model.game.StarfighterGameEngine;
 
 public class Grunt extends Enemy{
-    public Grunt(WeaponAbstract weapon, ArmorAbstract armorType, PowerAbstract powerType, Position position,StatsEntities stats) {
-        super(weapon, armorType, powerType, position, stats); 
+    public Grunt(Gear gear, Position position,StatsEntities stats) {
+        super(gear, position, stats); 
         this.seenByStarfighter = false;
         this.canSeeStarfighter = false;
     }

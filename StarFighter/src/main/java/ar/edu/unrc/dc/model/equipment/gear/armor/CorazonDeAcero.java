@@ -14,7 +14,7 @@ public class CorazonDeAcero extends ArmorAbstract {
         statsStartFighter.setArmour(statsStartFighter.getArmour() + 40);
         statsStartFighter.setTotalHealth(statsStartFighter.getTotalHealth() + 40);
         statsStartFighter.setCurrentHealth(statsStartFighter.getCurrentHealth() + 40);
-        statsStartFighter.setMoveSpeed(statsStartFighter.getMoveSpeed() - 5)
+        statsStartFighter.setMoveSpeed(statsStartFighter.getMoveSpeed() - 5);
     }
 
 }

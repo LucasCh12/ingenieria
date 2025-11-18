@@ -8,28 +8,28 @@ import ar.edu.unrc.dc.model.board.objects.projectiles.Projectile;
 
 public class Rocket extends WeaponAbstract {
     
-    int projectileSpeed = 1;
+    int projectileBase = 1; 
 
     @Override
     public List<Projectile> fire(Position shooterPos){
-        return getProjectiles(shooterPos);
-    }
-
-    private List<Projectile> getProjectiles(Position pos) {
-
         List<Projectile> projectiles = new ArrayList<>();
-        int column = pos.getColumn();
-        int row = pos.getRow();
-        
-        for (int rowOffset = -1; rowOffset <= 1; rowOffset++) {
+        int col = shooterPos.getColumn();
+        int row = shooterPos.getRow();
 
-            Position newPosition = new Position(row + rowOffset, column - 1);
+        Position pUp = new Position(row - 1, col - 1);
+        Projectile up = new Projectile(pUp, getWeaponType());
+        up.setDamage(4);
+        up.setRocket(true);
+        up.setDirection(1, 0);        
+        projectiles.add(up);
 
-            Projectile projectile = new Projectile(newPosition, getWeaponType());
-            projectile.setDamage(4);
-            projectile.setMoveSpeed(projectileSpeed);
-            projectiles.add(projectile);
-        }
+        Position pDown = new Position(row + 1, col - 1);
+        Projectile down = new Projectile(pDown, getWeaponType());
+        down.setDamage(4);
+        down.setRocket(true);
+        down.setDirection(1, 0);        
+        projectiles.add(down);
+
         return projectiles;
     }
 
@@ -40,6 +40,6 @@ public class Rocket extends WeaponAbstract {
 
     @Override
     public int getProjectileSpeed(){
-        return projectileSpeed;
+        return projectileBase;
     }
 }

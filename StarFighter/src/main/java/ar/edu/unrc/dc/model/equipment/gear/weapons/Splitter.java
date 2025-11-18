@@ -18,15 +18,16 @@ public class Splitter extends WeaponAbstract {
     public List<Projectile> fire(Position shooterPos) {
         List<Projectile> projectiles = new ArrayList<>();
 
-        // dispara sin moverse del lugar
+        // aparece en la derecha del starfighter según consigna: [row, col+1]
         Position newPosition = new Position(
             shooterPos.getRow(),
-            shooterPos.getColumn()
+            shooterPos.getColumn() + 1
         );
 
         Projectile projectile = new Projectile(newPosition, getWeaponType());
         projectile.setDamage(10);
-        projectile.setMoveSpeed(projectileSpeed);
+        projectile.setDirection(0, 0);
+        projectile.setSplitter(true);
 
         projectiles.add(projectile);
 

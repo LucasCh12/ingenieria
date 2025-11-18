@@ -30,7 +30,7 @@ public class SetLoadOutCommand implements GameCommand{
                 }
             case 2 -> {
                 ArmorAbstract armor = new CotaDeMalla(statsEntities);
-                entity.setArmorType(armor);
+                entity.getGear().setArmor(armor);
                 }
             case 3 -> {
                 // armor = new ArmorCreada3(stats);
@@ -48,22 +48,22 @@ public class SetLoadOutCommand implements GameCommand{
             }
             case 2 -> {
                 WeaponAbstract weapon = new Spread();
-                entity.setWeaponType(weapon);
+                entity.getGear().setWeapon(weapon);
                 //weapon.applyModifiersStats();
             }
             case 3 -> {
                 WeaponAbstract weapon = new Splitter();
-                entity.setWeaponType(weapon);
+                entity.getGear().setWeapon(weapon);
                 //weapon.applyModifiersStats();
             }
             case 4 -> {
                 WeaponAbstract weapon = new Sniper();
-                entity.setWeaponType(weapon);
+                entity.getGear().setWeapon(weapon);
                 //weapon.applyModifiersStats();
             }
             case 5 -> {
                 WeaponAbstract weapon = new Rocket();
-                entity.setWeaponType(weapon);
+                entity.getGear().setWeapon(weapon);
                 //weapon.applyModifiersStats();
             }
             default -> throw new IllegalArgumentException("Invalid weapon option");

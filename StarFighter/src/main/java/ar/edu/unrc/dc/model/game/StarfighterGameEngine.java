@@ -17,6 +17,7 @@ import ar.edu.unrc.dc.model.board.objects.entities.StatsEntities;
 import ar.edu.unrc.dc.model.board.objects.entities.enemies.Enemy;
 import ar.edu.unrc.dc.model.board.objects.entities.fighters.StarFighter;
 import ar.edu.unrc.dc.model.board.objects.projectiles.Projectile;
+import ar.edu.unrc.dc.model.equipment.gear.Gear;
 import ar.edu.unrc.dc.model.equipment.gear.weapons.Standard;
 import ar.edu.unrc.dc.model.factories.EnemyFactory;
 import ar.edu.unrc.dc.model.game.state.GameState;
@@ -74,29 +75,70 @@ public class StarfighterGameEngine implements Subject {
 
     private void advancePositionProjectile() {
     List<Projectile> projectilesToRemove = new ArrayList<>();
-    
-    for(Projectile projectile : board.getProjectiles()) {
-        // No necesitas verificar "if(!(object instanceof Projectile))" 
-        // porque ya estás iterando sobre getProjectiles()
-        
+
+    // Hacemos una copia para evitar ConcurrentModification si board.getProjectiles() es la misma colección que board.getObjects()
+    List<Projectile> projectiles = new ArrayList<>(board.getProjectiles());
+
+    for (Projectile projectile : projectiles) {
         Position oldPosition = projectile.getPosition();
-        Position newPosition = new Position(
-            oldPosition.getRow(), 
-            oldPosition.getColumn() + projectile.getHorizontalSpeed()
-        );
-        
-        if(!board.isValidPosition(newPosition)) {
+
+        if (projectile.isSniper()) {
+            Position finalPos = new Position(oldPosition.getRow(), oldPosition.getColumn() + projectile.getHorizontalSpeed()); // baseDx debe ser 8
+            if (!board.isValidPosition(finalPos)) {
+                projectilesToRemove.add(projectile);
+            } else {
+                projectile.setPosition(finalPos);
+            }
+            continue;
+        }
+        if (projectile.isRocket()) {
+            int deltaRow = projectile.getVerticalSpeed();   // devolverá baseDy solo en primer turno
+            int deltaCol = projectile.getHorizontalSpeed(); // baseDx * multiplier
+
+            Position newPos = new Position(oldPosition.getRow(), oldPosition.getColumn() + deltaCol);
+
+            if (!board.isValidPosition(newPos)) {
+                projectilesToRemove.add(projectile);
+            } else {
+                projectile.setPosition(newPos);
+
+                // después de mover: quitar la componente vertical para futuros turnos
+                //projectile.markRocketFirstStepDone();
+
+                // duplicar la velocidad horizontal para el SIGUIENTE turno
+                projectile.doubleRocketMultiplier();
+            }
+            continue;
+        }
+        if (projectile.isSplitter()) {
+            // Si está fuera de rango ya, removelo; sino queda donde está
+            Position newPos = new Position(oldPosition.getRow(), oldPosition.getColumn());
+            if (!board.isValidPosition(newPos)) {
+                projectilesToRemove.add(projectile);
+            } else {
+                projectile.setPosition(newPos);
+            }
+            continue;
+        }
+
+        int deltaRow = projectile.getVerticalSpeed();
+        int deltaCol = projectile.getHorizontalSpeed();
+
+        Position newPosition = new Position(oldPosition.getRow() + deltaRow, oldPosition.getColumn() + deltaCol);
+
+        if (!board.isValidPosition(newPosition)) {
             projectilesToRemove.add(projectile);
         } else {
-            projectile.setPosition(newPosition);  // Solo mover si es válida
+            projectile.setPosition(newPosition);
         }
     }
-    
+
     // Remover proyectiles que salieron del tablero
-    for(Projectile projectile : projectilesToRemove) {
-        board.getObjects().remove(projectile);
+    for (Projectile p : projectilesToRemove) {
+        board.getObjects().remove(p);
     }
 }
+
     
     /**
      * Initializes a new game with the given parameters. This is the crucial starting command.
@@ -140,7 +182,6 @@ public class StarfighterGameEngine implements Subject {
 
         command.execute();
         this.currentCommand = command;
-        advancePositionProjectile();
         notifyObservers();;
     }
 
@@ -278,12 +319,10 @@ public class StarfighterGameEngine implements Subject {
     public void initializeGame() {
         Position startfighterPosition = new Position(config.getRows() / 2, 0); 
         StatsEntities statsStarFighter = new StatsEntities(100, 10, 20, 13, "star", config.getStarFighterSpeed());
-        this.starFighter = new StarFighter(startfighterPosition, new Standard(config.getProjectileSpeed()), null, null, statsStarFighter, 15, config.getProjectileSpeed());
-        System.out.println("weapon: " + ((StarFighter) starFighter).getWeapon());
+        Gear gear = new Gear(new Standard(config.getProjectileSpeed()),null,null,null);
+        this.starFighter = new StarFighter(startfighterPosition,gear, statsStarFighter, 15, config.getProjectileSpeed());
         GameCommand command = new SetLoadOutCommand(loadOut, starFighter);
-        System.out.println("Loadout applied:\n" + loadOut.getSummary());
-        System.out.println("armor: " + statsStarFighter.getArmour());
-        System.out.println("weapon: " + ((StarFighter) starFighter).getWeapon());
+        command.execute();
         this.board = new Board(config.getRows(), config.getColumns(), starFighter);
         this.rules = new RulesImplements();
         this.isActive = true;

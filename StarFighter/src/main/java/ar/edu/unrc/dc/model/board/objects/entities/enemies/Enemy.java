@@ -4,9 +4,7 @@ import ar.edu.unrc.dc.model.actions.GameCommand;
 import ar.edu.unrc.dc.model.board.Position;
 import ar.edu.unrc.dc.model.board.objects.entities.Entity;
 import ar.edu.unrc.dc.model.board.objects.entities.StatsEntities;
-import ar.edu.unrc.dc.model.equipment.gear.armor.ArmorAbstract;
-import ar.edu.unrc.dc.model.equipment.gear.power.PowerAbstract;
-import ar.edu.unrc.dc.model.equipment.gear.weapons.WeaponAbstract;
+import ar.edu.unrc.dc.model.equipment.gear.Gear;
 import ar.edu.unrc.dc.model.game.StarfighterGameEngine;
 
 public abstract class Enemy extends Entity { 
@@ -14,8 +12,8 @@ public abstract class Enemy extends Entity {
     protected boolean canSeeStarfighter; 
     protected int id;
 
-    public Enemy(WeaponAbstract weapon, ArmorAbstract armorType, PowerAbstract powerType, Position position,StatsEntities stats) {
-        super(weapon, armorType, powerType, position, stats); 
+    public Enemy(Gear gear, Position position,StatsEntities stats) {
+        super(gear, position, stats); 
         this.seenByStarfighter = false;
         this.canSeeStarfighter = false;
     }
@@ -55,7 +53,6 @@ public abstract class Enemy extends Entity {
     public int getArmour() { return getStatsEntities().getArmour(); }
     public int getVision() { return getStatsEntities().getVision(); }
     public String getName() { return getStatsEntities().getName(); }
-    public WeaponAbstract getWeapon() { return getWeaponType(); }
     public int getId() { return this.id; }
     public int getCurrentHealth() { return getStatsEntities().getCurrentHealth(); }
     public int getTotalHealth() { return getStatsEntities().getTotalHealth(); }

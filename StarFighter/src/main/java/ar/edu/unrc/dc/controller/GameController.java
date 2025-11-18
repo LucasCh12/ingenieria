@@ -1,15 +1,8 @@
 package ar.edu.unrc.dc.controller;
 
-import java.util.Set;
-
-import ar.edu.unrc.dc.model.actions.FireCommand;
 import ar.edu.unrc.dc.model.actions.GameCommand;
-import ar.edu.unrc.dc.model.actions.PlayCommand;
 import ar.edu.unrc.dc.model.board.Position;
 import ar.edu.unrc.dc.model.game.StarfighterGameEngine;
-import ar.edu.unrc.dc.model.game.state.GameState;
-import ar.edu.unrc.dc.model.game.state.InGameState;
-import ar.edu.unrc.dc.model.game.state.NotStartedState;
 import ar.edu.unrc.dc.model.game.state.SetupState;
 import ar.edu.unrc.dc.view.GameView;
 
@@ -86,13 +79,13 @@ public class GameController implements GameControllerInterface {
                     case 2 -> {
                         view.displayMessage("Enter option number to select:");
                         if(step.equals("ARMOUR")) {
-                            view.armorOption("Available Armour Options:\n[1] Light Armor\n[2] Chainmail\n[3] Heavy Armor\n[4] Energy Shield");
+                            view.armorOption();
                         } else if(step.equals("WEAPON")) {
-                            view.weaponOptions("Available Weapon Options:\n[1] Standard\n[2] Laser\n[3] Plasma Cannon\n[4] Missile Launcher\n[5] Railgun");
+                            view.weaponOptions();
                         } else if(step.equals("ENGINE")) {
-                            view.engineOptions("Available Engine Options:\n[1] Standard Engine\n[2] Turbo Engine\n[3] Hyperdrive Engine");
+                            view.engineOptions();
                         } else if(step.equals("POWER")) {
-                            view.powerOptions("Available Power Options:\n[1] Shield Boost\n[2] Speed Boost\n[3] Damage Boost\n[4] Energy Regen\n[5] Stealth Mode");
+                            view.powerOptions();
                         }
                         int n = input.readInt();
                         engine.setupSelect(n);
@@ -137,6 +130,7 @@ public class GameController implements GameControllerInterface {
             Position movePosition = new Position(vertical, horizontal);
             engine.move(movePosition);
             view.displayMessage("Move executed successfully!");
+            view.displayBoard(engine.getBoard(), true);
         } catch (Exception e) {
             view.displayError("Error moving: " + e.getMessage());
         }

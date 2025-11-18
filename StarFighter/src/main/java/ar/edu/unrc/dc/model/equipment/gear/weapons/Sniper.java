@@ -8,7 +8,7 @@ import ar.edu.unrc.dc.model.board.objects.projectiles.Projectile;
 
 public class Sniper extends WeaponAbstract {
     
-    int projectileSpeed;
+    int projectileSpeed = 8; // teleport distance
 
     public Sniper() {
         super();
@@ -21,11 +21,12 @@ public class Sniper extends WeaponAbstract {
         int column = shooterPos.getColumn();
         int row = shooterPos.getRow();
 
-        Position newPosition = new Position(row, column - 1);
+        Position newPosition = new Position(row, column + 1);
 
         Projectile projectile = new Projectile(newPosition, getWeaponType());
         projectile.setDamage(20);
-        projectile.setMoveSpeed(projectileSpeed);
+        projectile.setDirection(projectileSpeed, 0); // baseDx = 8
+        projectile.setSniper(true);
 
         projectiles.add(projectile);
 
