@@ -1,11 +1,11 @@
-arguments=--init-script /var/folders/13/zqd198rd3cz3395cwv3ww1bm0000gn/T/db3b08fc4a9ef609cb16b96b200fa13e563f396e9bb1ed0905fdab7bc3bc513b.gradle
+arguments=--init-script /home/lucas-thinkpad/.config/Code/User/globalStorage/redhat.java/1.50.0/config_linux/org.eclipse.osgi/58/0/.cp/gradle/init/init.gradle --init-script /home/lucas-thinkpad/.config/Code/User/globalStorage/redhat.java/1.50.0/config_linux/org.eclipse.osgi/58/0/.cp/gradle/protobuf/init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=/Users/lucas/.sdkman/candidates/java/21.0.2-tem
+java.home=/usr/lib/jvm/java-25-openjdk
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true
